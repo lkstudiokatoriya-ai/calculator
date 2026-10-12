@@ -10,20 +10,19 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <title></title>
+    <title>Scientific Calculator</title>
 
     <!-- PWA Configuration -->
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="icons/icon-192.png">
     <link rel="apple-touch-icon" href="icons/icon-192.png">
 
-    <!-- Premium UI Styles -->
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Calculator Logic -->
+    <!-- Script -->
     <script src="script.js" defer></script>
 </head>
-
 <body>
 
     <!-- Application Shell -->
@@ -34,73 +33,32 @@
 
             <!-- Top Controls -->
             <header class="top-bar">
-
                 <div class="top-bar-left">
-                    <button
-                        type="button"
-                        class="icon-button"
-                        id="scientific-toggle"
-                        aria-label="Toggle scientific calculator"
-                        title="Scientific mode">
+                    <button type="button" class="icon-button" id="scientific-toggle" aria-label="Toggle scientific calculator" title="Scientific mode">
                         <span aria-hidden="true">ƒx</span>
                     </button>
                 </div>
 
                 <div class="top-bar-right">
-
-                    <button
-                        type="button"
-                        class="icon-button"
-                        id="history-toggle"
-                        aria-label="Open calculation history"
-                        title="History">
+                    <button type="button" class="icon-button" id="history-toggle" aria-label="Open calculation history" title="History">
                         <span aria-hidden="true">◷</span>
                     </button>
 
-                    <button
-    type="button"
-    class="icon-button"
-    id="theme-toggle"
-    aria-label="Toggle appearance"
-    title="Appearance">
-    <img src="moon.png" alt="" aria-hidden="true">
+                    <button type="button" class="icon-button" id="theme-toggle" aria-label="Toggle appearance" title="Appearance">
+                        <img src="moon.png" alt="Toggle theme" aria-hidden="true">
                     </button>
-                    
-
                 </div>
-
             </header>
 
-
             <!-- Display -->
-            <section class="display-area"
-                     aria-label="Calculator display">
-
-                <div
-                    class="display-expression"
-                    id="expression"
-                    aria-label="Expression">
-                </div>
-
-                <div
-                    class="display-result"
-                    id="result"
-                    role="status"
-                    aria-live="polite"
-                    aria-atomic="true">0</div>
-
+            <section class="display-area" aria-label="Calculator display">
+                <div class="display-expression" id="expression" aria-label="Expression"></div>
+                <div class="display-result" id="result" role="status" aria-live="polite" aria-atomic="true">0</div>
             </section>
 
-
             <!-- Scientific Functions -->
-            <section
-                class="scientific-panel"
-                id="scientific-panel"
-                aria-label="Scientific functions"
-                hidden>
-
+            <section class="scientific-panel" id="scientific-panel" aria-label="Scientific functions" hidden>
                 <div class="scientific-grid">
-
                     <button type="button" data-action="open-paren">(</button>
                     <button type="button" data-action="close-paren">)</button>
                     <button type="button" data-action="square">x²</button>
@@ -120,170 +78,76 @@
                     <button type="button" data-action="e">e</button>
                     <button type="button" data-action="ans">Ans</button>
                     <button type="button" data-action="angle-mode">DEG</button>
-
                 </div>
-
             </section>
-
 
             <!-- Main Keypad -->
             <section class="keypad" aria-label="Calculator keypad">
-
                 <div class="keypad-grid">
+                    <button type="button" class="key key-function" data-action="clear-all">AC</button>
+                    <button type="button" class="key key-function" data-action="clear-entry">CE</button>
+                    <button type="button" class="key key-function" data-action="percent">%</button>
+                    <button type="button" class="key key-operator" data-operator="÷">÷</button>
 
-                    <button type="button"
-                            class="key key-function"
-                            data-action="clear-all">AC</button>
+                    <button type="button" class="key" data-number="7">7</button>
+                    <button type="button" class="key" data-number="8">8</button>
+                    <button type="button" class="key" data-number="9">9</button>
+                    <button type="button" class="key key-operator" data-operator="×">×</button>
 
-                    <button type="button"
-                            class="key key-function"
-                            data-action="clear-entry">CE</button>
+                    <button type="button" class="key" data-number="4">4</button>
+                    <button type="button" class="key" data-number="5">5</button>
+                    <button type="button" class="key" data-number="6">6</button>
+                    <button type="button" class="key key-operator" data-operator="−">−</button>
 
-                    <button type="button"
-                            class="key key-function"
-                            data-action="percent">%</button>
+                    <button type="button" class="key" data-number="1">1</button>
+                    <button type="button" class="key" data-number="2">2</button>
+                    <button type="button" class="key" data-number="3">3</button>
+                    <button type="button" class="key key-operator" data-operator="+">+</button>
 
-                    <button type="button"
-                            class="key key-operator"
-                            data-operator="÷">÷</button>
-
-
-                    <button type="button" class="key"
-                            data-number="7">7</button>
-
-                    <button type="button" class="key"
-                            data-number="8">8</button>
-
-                    <button type="button" class="key"
-                            data-number="9">9</button>
-
-                    <button type="button"
-                            class="key key-operator"
-                            data-operator="×">×</button>
-
-
-                    <button type="button" class="key"
-                            data-number="4">4</button>
-
-                    <button type="button" class="key"
-                            data-number="5">5</button>
-
-                    <button type="button" class="key"
-                            data-number="6">6</button>
-
-                    <button type="button"
-                            class="key key-operator"
-                            data-operator="−">−</button>
-
-
-                    <button type="button" class="key"
-                            data-number="1">1</button>
-
-                    <button type="button" class="key"
-                            data-number="2">2</button>
-
-                    <button type="button" class="key"
-                            data-number="3">3</button>
-
-                    <button type="button"
-                            class="key key-operator"
-                            data-operator="+">+</button>
-
-
-                    <button type="button"
-                            class="key key-function"
-                            data-action="toggle-sign">±</button>
-
-                    <button type="button" class="key"
-                            data-number="0">0</button>
-
-                    <button type="button" class="key"
-                            data-action="decimal">.</button>
-
-                    <button type="button"
-                            class="key key-equals"
-                            data-action="calculate">=</button>
-
+                    <button type="button" class="key key-function" data-action="toggle-sign">±</button>
+                    <button type="button" class="key" data-number="0">0</button>
+                    <button type="button" class="key" data-action="decimal">.</button>
+                    <button type="button" class="key key-equals" data-action="calculate">=</button>
                 </div>
-
             </section>
 
-
-            <!-- Memory -->
-            <section class="memory-bar"
-                     aria-label="Calculator memory">
-
+            <!-- Memory Bar -->
+            <section class="memory-bar" aria-label="Calculator memory">
                 <button type="button" data-action="memory-clear">MC</button>
                 <button type="button" data-action="memory-recall">MR</button>
                 <button type="button" data-action="memory-add">M+</button>
                 <button type="button" data-action="memory-subtract">M−</button>
-
             </section>
-
 
             <!-- Editing Controls -->
             <footer class="bottom-controls">
-
-                <button
-                    type="button"
-                    class="backspace-button"
-                    data-action="backspace"
-                    aria-label="Delete last digit">⌫</button>
-
+                <button type="button" class="backspace-button" data-action="backspace" aria-label="Delete last digit">⌫</button>
             </footer>
 
         </section>
 
-
         <!-- History Drawer -->
-        <aside
-            class="history-panel"
-            id="history-panel"
-            aria-label="Calculation history"
-            hidden>
-
+        <aside class="history-panel" id="history-panel" aria-label="Calculation history" hidden>
             <header class="history-header">
-
-                <button type="button"
-                        data-action="close-history"
-                        aria-label="Close history">×</button>
-
-                <button type="button"
-                        data-action="clear-history">Clear</button>
-
+                <button type="button" data-action="close-history" aria-label="Close history">×</button>
+                <button type="button" data-action="clear-history">Clear</button>
             </header>
-
-            <div
-                class="history-list"
-                id="history-list"
-                aria-live="polite">
-            </div>
-
+            <div class="history-list" id="history-list" aria-live="polite"></div>
         </aside>
 
     </main>
 
-
     <!-- Accessible Status -->
-    <div
-        class="sr-only"
-        id="app-status"
-        role="status"
-        aria-live="polite">
-    </div>
-
+    <div class="sr-only" id="app-status" role="status" aria-live="polite"></div>
 
     <!-- PWA Service Worker -->
     <script>
         if ("serviceWorker" in navigator && window.isSecureContext) {
             window.addEventListener("load", () => {
-                navigator.serviceWorker.register("./sw.js")
-                    .catch(() => {
-                        // Offline support can be enabled after setup.
-                    });
+                navigator.serviceWorker.register("./sw.js").catch(() => {});
             });
         }
     </script>
-
 </body>
     </html>
+    
